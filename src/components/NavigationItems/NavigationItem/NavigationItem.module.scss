@@ -1,0 +1,21 @@
+.NavigationItem {
+    a {
+        height: 100%;
+        font-size: 18px;
+        color: #fff;
+        padding: 0 15px;
+
+        &:hover,
+        &:active,
+        &.active {
+            color: #FA9C1D;
+        }
+    }
+}
+
+@media (max-width: 499px) {
+    .NavigationItem {
+        width: 100%;
+        margin: 15px 0;
+    }
+}

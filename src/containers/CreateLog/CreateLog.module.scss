@@ -1,0 +1,75 @@
+.CreateLog {
+    width: 70%;
+    max-width: 370px;
+    margin: 70px auto 0;
+}
+
+:global {
+    .ant-form {
+        // text-align: center;
+
+        &.ant-form-horizontal {
+            padding: 20px 0 10px;
+
+            .ant-radio-group-large .ant-radio-button-wrapper {
+                padding: 0 32px;
+
+                // &:hover {
+                //     color:
+                // }
+            }
+
+            .ant-radio-group-solid .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+                background: #405275;
+                border-color: #405275;
+
+                &:active,
+                &:hover {
+                    background: #405275;
+                    border-color: #405275;
+                }
+            }
+
+            .ant-form-item-children {
+                display: block;
+
+                .ant-radio-button-wrapper:hover {
+                    color: #FA9C1D;
+                }
+
+                .ant-calendar-picker.ant-calendar-picker-large,
+                .ant-input-number.ant-input-number-lg {
+                    width: 100%;
+                }
+
+                .ant-input-number.ant-input-number-lg {
+
+                    &:focus,
+                    &:hover {
+                        border-color: #405275;
+                        box-shadow: 0 0 0 2px rgba(#405275, 0.2)
+                    }
+
+                    &.ant-input-number-focused {
+                        border-color: #405275;
+                        box-shadow: 0 0 0 2px rgba(#405275, 0.2)
+                    }
+                }
+
+                .ant-calendar-picker:hover .ant-calendar-picker-input:not(.ant-input-disabled) {
+                    border-color: #405275;
+                    box-shadow: 0 0 0 2px rgba(#405275, 0.2)
+                }
+            }
+
+            .ant-calendar-picker .ant-calendar-picker-large {
+                display: block;
+            }
+
+            .ant-btn {
+                display: block;
+                margin: 0 auto;
+            }
+        }
+    }
+}

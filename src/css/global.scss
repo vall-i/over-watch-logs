@@ -1,0 +1,26 @@
+textarea {
+    resize: none !important;
+}
+
+$quartz: #4A4C4E;
+$yellow: #FA9C1D;
+$dark-blue: #405275;
+$blue: #218FFE;
+$white: #fff;
+$black: #000;
+
+/* width */
+::-webkit-scrollbar {
+	width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #f7f7f7;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	border-radius: 3px;
+	background: #d8d8d8;
+}

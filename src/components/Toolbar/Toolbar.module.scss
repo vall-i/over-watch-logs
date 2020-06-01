@@ -1,0 +1,27 @@
+.Toolbar {
+    height: 60px;
+    width: 100%;
+    padding: 0 20px;
+    background-color: #4A4C4E;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 101;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .Logo {
+        height: 85%;
+    }
+
+    nav {
+        height: 100%;
+    } 
+}
+
+@media (max-width: 499px) {
+    .MobileOnly {
+        display: none;
+    }
+}

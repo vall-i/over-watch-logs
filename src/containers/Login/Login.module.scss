@@ -1,0 +1,25 @@
+.Login {
+    max-width: 350px;
+    width: 80%;
+    margin: 0 auto;
+
+    h1 {
+        margin-bottom: 30px;
+        font-size: 26px;
+        text-align: center;
+    }
+
+    .loginForm {
+        display: block;
+        width: 90%;
+        margin: 0 auto !important;
+
+        .loginFormForgot {
+            float: right;
+        }
+
+        .loginFormButton {
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,31 @@
+.SideDrawer {
+    width: 60%;
+    max-width: 220px;
+    height: 100%;
+    background: linear-gradient(#405275 65%, #4A4C4E);
+    padding: 20px 15px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 105;
+    transition: transform .2s ease-in-out;
+
+    &.Open {
+        transform: translateX(0);
+    }
+
+    &.Close {
+        transform: translateX(-100%);
+    }
+
+    .Logo {
+        height: 13%;
+        margin-bottom: 30px; 
+    }
+}
+
+@media (min-width: 500px) {
+    .SideDrawer {
+        display: none;
+    }
+}
