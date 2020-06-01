@@ -29,6 +29,7 @@ class RecoveryPassword extends Component {
         console.log('Received values of form: ', values);
         axios
           .post('user/recovery', data)
+         
           .then(res => {
             console.log(res);
             this.setState({ emailSentMessage: true, loading: false });
@@ -106,4 +107,4 @@ const WrappedRecoveryPassword = Form.create({ name: 'normal_login ' })(
   RecoveryPassword
 );
 
-export default withErrorHandler(WrappedRecoveryPassword);
+export default withErrorHandler(WrappedRecoveryPassword, axios);

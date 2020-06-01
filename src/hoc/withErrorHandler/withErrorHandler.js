@@ -2,27 +2,47 @@ import React, { Component } from 'react';
 
 import { Modal, Button } from 'antd';
 
-const withErrorHandler = WrappedComponent => {
+const withErrorHandler = (WrappedComponent, axios) => {
   return class extends Component {
-    state = {
-      visible: true,
-    };
+    constructor(props) {
+      super(props);
+
+      this.state = {
+        error: null
+      };
+      
+      this.reqInterceptor = axios.interceptors.request.use(req => {
+        this.setState({error: null});
+        return req;
+      });
+  
+      this.resInterceptor = axios.interceptors.response.use(res => res, error => {
+        this.setState({error: error});
+      })
+    }
+
+    componentWillUnmount() {
+      console.log('Will Unmount', this.reqInterceptor, this.resInterceptor);
+      axios.interceptors.request.eject(this.reqInterceptor);
+      axios.interceptors.response.eject(this.resInterceptor);
+    }
 
     okButtonHandler = event => {
       this.setState({
-        visible: false,
+        error: null,
       });
     };
 
     render() {
+      const { error } = this.state;
       return (
         <>
           <Modal
-            visible={this.state.visible}
+            visible={!!error}
             onOk={this.okButtonHandler}
             footer={<Button key="back" onClick={this.okButtonHandler}>Return</Button>}
           >
-            <p>Somehting went wrong!</p>
+            {error ? <p>{error.message}</p> : null}
           </Modal>
           <WrappedComponent {...this.props} />
         </>

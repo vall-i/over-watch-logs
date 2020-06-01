@@ -16,7 +16,8 @@ class App extends Component {
   };
 
   render() {
-    // debugger
+    const { isAuthenticated } = this.state;
+    console.log(isAuthenticated);
     let routes = (
       <Switch>
         <Route path='/login' component={Login} />
@@ -26,9 +27,8 @@ class App extends Component {
         <Redirect to='/login' />
       </Switch>
     );
-console.log(this.state.isAuthenticated);
 
-    if (this.state.isAuthenticated) {
+    if (isAuthenticated) {
       routes = (
         <Switch>
           <Route path='/create' component={CreateLog} />
@@ -40,7 +40,7 @@ console.log(this.state.isAuthenticated);
       <div>
         <AuthContext.Provider
           value={{
-            authenticated: this.state.isAuthenticated,
+            authenticated: isAuthenticated,
             logout: () => {
               localStorage.clear();
               this.setState({ isAuthenticated: false })
