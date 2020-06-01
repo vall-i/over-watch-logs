@@ -22,7 +22,7 @@ class Login extends Component {
     event.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        this.setState({ error: null, loading: false });
+        this.setState({ error: null, loading: true });
         const data = {
           email: values.email,
           password: values.password,
@@ -32,7 +32,7 @@ class Login extends Component {
           .then(res => {
             localStorage.setItem('token', res.data.token);
             axios.defaults.headers.common['Authorization'] = res.data.token;
-            this.setState({ loading: true });
+            this.setState({ loading: false });
             this.context.login();
             this.props.history.push('/');
           })
