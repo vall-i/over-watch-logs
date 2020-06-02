@@ -3,11 +3,9 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Form, Input, Button } from 'antd';
 
-
 import Card from '../../components/Card/Card';
 import Spinner from '../../components/Spinner/Spinner';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
-import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 
 import classes from './RecoveryPassword.module.scss';
 
@@ -107,4 +105,4 @@ const WrappedRecoveryPassword = Form.create({ name: 'normal_login ' })(
   RecoveryPassword
 );
 
-export default withErrorHandler(WrappedRecoveryPassword, axios);
+export default WrappedRecoveryPassword;
