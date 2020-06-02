@@ -26,7 +26,7 @@ class ResetPassword extends Component {
         };
 
         axios
-          .put('/reset/password', data)
+          .put('/user/reset', data)
           .then(res => {
             this.setState({ loading: false });
             console.log(res);
@@ -108,14 +108,8 @@ class ResetPassword extends Component {
                     message: 'Please input your Password!',
                   },
                   {
-                    min: 6,
-                    message:
-                      'Your password must be between 6 and 18 characters!',
-                  },
-                  {
                     pattern: /^(?=.*[0-9])(?=.*[a-zA-Z])[0-9a-zA-Z!@#$%^&*]{6,18}$/,
-                    message:
-                      'Your password must contain at least one uppercase letter or one lowercase letter and at least one number digit!',
+                    message: 'Must be 6-18 chars (include 1 letter and number)'
                   },
                   {
                     validator: this.validateToNextPassword,
@@ -139,7 +133,7 @@ class ResetPassword extends Component {
 
             <Form.Item {...tailFormItemLayout}>
               <Button type='primary' htmlType='submit'>
-                Send
+                Send Password
               </Button>
             </Form.Item>
           </Form>
