@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Form, Input, Button } from 'antd';
+import { Form, Input, Button, message } from 'antd';
+
 import Card from '../../components/Card/Card';
 import Spinner from '../../components/Spinner/Spinner';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 
 import classes from './ResetPassword.module.scss';
+
+const key = 'updatable';
 
 class ResetPassword extends Component {
   state = {
@@ -19,6 +22,7 @@ class ResetPassword extends Component {
     this.setState({ loading: true, error: null });
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
+        // message.loading({content: 'Sending...', key});
         console.log('Received values of form: ', values);
         const data = {
           token: this.props.match.params.token,
@@ -29,7 +33,11 @@ class ResetPassword extends Component {
           .put('/user/reset', data)
           .then(res => {
             this.setState({ loading: false });
+            message.success({content: 'Success!', key, duration: .5})
             console.log(res);
+            // setTimeout(() => {
+            //   this.props.history.push('/login');
+            // }, 500)
             this.props.history.push('/login');
             console.log(this.props);
           })

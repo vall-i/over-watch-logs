@@ -6,9 +6,10 @@ import Register from './containers/Register/Register';
 import Layout from './containers/Layout/Layout';
 import RecoveryPassword from './containers/RecoveryPassword/RecoveryPassword';
 import ReserPassword from './containers/ResetPassword/ResetPassword';
-import MainPage from './containers/MainPage/MainPage';
 import CreateLog from './containers/CreateLog/CreateLog';
 import AuthContext from './context/authentication';
+
+const MainPage = React.lazy(() => import('./containers/MainPage/MainPage'));
 
 class App extends Component {
   state = {
