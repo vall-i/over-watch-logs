@@ -1,4 +1,4 @@
-#Overwatch Logs
+## Overwatch Logs
 
 A single page application (SPA) for managing Overwatch rating logs.
 </br>
